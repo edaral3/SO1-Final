@@ -106,24 +106,4 @@ $(function() {
         console.log(data)
         xhr.send(data);
     });
-
-    $('#login2').click(function() {
-        var xhr = new XMLHttpRequest();
-        var url = "http://semi1-lb-proyecto1-1129256119.us-east-1.elb.amazonaws.com/api/login";
-        xhr.open("POST", url, true);
-        xhr.setRequestHeader("Content-Type", "application/json");
-        xhr.onreadystatechange = function() {
-            if (xhr.readyState === 4 && xhr.status === 200) {
-                var json = JSON.parse(xhr.responseText);
-                console.log(json);
-                if (json.status) {
-                    location.href = "../home/index.html";
-                }
-            }
-        };
-
-        var data = JSON.stringify({ "sourceBase64": canvas.toDataURL() });
-
-        xhr.send(data);
-    });
 });
