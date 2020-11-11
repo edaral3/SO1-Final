@@ -6,18 +6,14 @@ spec:
   replicas: 3
   selector:
     matchLabels:
-      app: final
+      app: front
   template:
     metadata:
       labels:
-        app: final
+        app: front
     spec:
       containers:
       - name: server-front
-        image: gcr.io/final/server111:1.0
+        image: gcr.io/sopes-295304/front:1.0
         ports:
         - containerPort: 3000
-      - name: server-back
-        image: gcr.io/final/server112:1.0
-        ports:
-        - containerPort: 5000
