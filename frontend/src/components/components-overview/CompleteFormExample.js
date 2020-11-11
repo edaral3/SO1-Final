@@ -43,7 +43,7 @@ const registrar = () => {
     user: usuario,
     pass: contrasena1,
   }
-  axios.post('34.67.231.97:5000/registro', body)
+  axios.post('http://34.67.231.97:5000/registro', body)
       .then(result => {
         console.log(result)
       })
