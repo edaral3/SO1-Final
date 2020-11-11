@@ -4,7 +4,7 @@ module.exports = app => {
     var router = require("express").Router();
 
     // Login 
-    router.get("/login", usuario.login);
+    router.post("/login", usuario.login);
     
     // Registra un usuario
     router.post("/registro", usuario.registrar);

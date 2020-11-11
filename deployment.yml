@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: final-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: final
+  template:
+    metadata:
+      labels:
+        app: final
+    spec:
+      containers:
+      - name: server-front
+        image: gcr.io/kubproject-292502/server111:1.0
+        ports:
+        - containerPort: 3000
+      - name: server-back
+        image: gcr.io/kubproject-292502/server112:1.0
+        ports:
+        - containerPort: 5000

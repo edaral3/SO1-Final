@@ -16,7 +16,7 @@ exports.login = (req, res) => {
             });
         }
         if (!data) {
-            return res.status(200).json({
+            return res.status(400).json({
                 message: `El usuario no existe`
             });
         }
@@ -25,7 +25,7 @@ exports.login = (req, res) => {
                 message: `Se encontro el usuario.`
             });
         }else{
-            return res.status(200).json({
+            return res.status(400).json({
                 message: `Contraseña incorrecta`
             });    
         }
@@ -50,6 +50,7 @@ exports.registrar = (req, res) => {
                 message: "Error al agregar el usuario."
             });
         }
+        console.log("--------------")
         return res.status(200).json({
             usuario: usuario,
             message: "Usuario creado."
