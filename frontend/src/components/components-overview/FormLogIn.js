@@ -10,7 +10,6 @@ import {
 } from "shards-react";
 import { Link, withRouter  } from 'react-router-dom';
 import axios from 'axios';
-import ruta from "../../ruta"
 //import {defineState} from 'redux-localstore'
 
 
@@ -19,17 +18,20 @@ const login = () => {
     user: user,
     pass: pass
   }
-  axios.post('34.67.231.97:5000/login', body)
+  console.log(body)
+  axios.post('http://localhost:5000/login', body)
       .then(result => {
-        if(result.data.message!="Usuario o contraseña no valido"){
+        console.log("-----------------")
+        if(result.data.message=="Se encontro el usuario."){
           route = "/inicio"
-          localStorage.setItem('usuario', JSON.stringify(result.data.user))
         }
         else{
           route = "/Login";
         }   
       })
-      .catch()      
+      .catch(err => {
+        console.log(err)
+      })      
     }
 let route = "/Login";
 

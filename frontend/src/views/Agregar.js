@@ -13,7 +13,6 @@ import {
 import axios from 'axios';
 import ruta from "../ruta"
 
-var data = JSON.parse(localStorage.getItem('usuario')); 
 class Agregar extends React.Component {
     constructor(props) {
         super(props);
@@ -24,16 +23,7 @@ class Agregar extends React.Component {
     }
 
     agregarAmigo = async () => {
-        let body = {
-            currentUser: data._id,
-            userFriend: this.props.post._id
-        }
-        console.log(body)
-        await axios.post(ruta.ruta+'/user/addFriend', body)
-            .then(result => {
-                console.log(result.data)
-            })
-            .catch()
+    
     }
 
     render() {

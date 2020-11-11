@@ -15,7 +15,6 @@ import axios from 'axios';
 import Agregar from './Agregar'
 import ruta from "../ruta"
 
-var data = JSON.parse(localStorage.getItem('usuario')); 
 class BlogPosts extends React.Component {
   constructor(props) {
     super(props);
@@ -28,21 +27,6 @@ class BlogPosts extends React.Component {
   }
 
   obtenerUsuarios = async () => {
-    let list = []
-    await axios.get(ruta.ruta+'/user/getNotFriends/' + data._id)
-      .then(result => {
-        result.data.users.forEach((user)=>{
-          let item = {
-            backgroundImage: user.profileImage,
-            title: user.username,
-            body: user.fullname,
-            _id: user._id
-          }
-          list.push(item)
-        })
-      })
-      .catch()
-      this.setState({PostsListOne:list})
   }
 
   render() {

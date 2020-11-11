@@ -16,7 +16,6 @@ import axios from 'axios';
 
 import ruta from "../../ruta"
 
-var data = JSON.parse(localStorage.getItem('usuario'))
 
 class TopReferrals extends React.Component {
 
@@ -32,22 +31,6 @@ class TopReferrals extends React.Component {
   obtenerUsuarios = async () => {
     let list = []
   
-    await axios.get(ruta.ruta + '/user/getFriends/' + data._id)
-      .then(result => {
-        result.data.users.forEach((user)=>{
-          let item = {
-            backgroundImage: user.profileImage,
-            title: user.username,
-            body: user.fullname,
-            _id: user._id
-          }
-          list.push(item)
-        })
-      })
-      .catch()
-      
-      localStorage.setItem('usuarios', JSON.stringify(list))
-      this.setState({friends:list})
   }
 
   render() {

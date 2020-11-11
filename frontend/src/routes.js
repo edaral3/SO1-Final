@@ -28,11 +28,6 @@ export default [{
         component: BlogOverview
     },
     {
-        path: "/tables",
-        layout: DefaultLayout,
-        component: Tables
-    },
-    {
         path: "/SignUp",
         layout: DefaultLayout2,
         component: SignUp

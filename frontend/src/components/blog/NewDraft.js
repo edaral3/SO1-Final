@@ -25,14 +25,13 @@ function doClick() {
   };
 }
 
-var data = JSON.parse(localStorage.getItem('usuario')); 
 const actualizarEstado = (e) => {
   estado = e.target.value
 }
 const publicar = () => {
   let body = {
     description : estado,
-    _id : data._id, //corresponde al id del usuario que realizo la publicacion
+    _id : "s", //corresponde al id del usuario que realizo la publicacion
     sourceBase64 :base64
   }
   console.log(body)

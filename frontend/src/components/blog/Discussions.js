@@ -16,8 +16,6 @@ import axios from 'axios';
 import Lista from './Lista';
 import ruta from "../../ruta"
 
-
-var data = JSON.parse(localStorage.getItem('usuario'));
 class Discussions extends React.Component {
   constructor(props) {
     super(props)
@@ -35,7 +33,7 @@ class Discussions extends React.Component {
   filtrar = async () => {
     let data2 = []
   
-    await axios.get(ruta.ruta + '/user/getFriends/' + data._id)
+    await axios.get(ruta.ruta + '/user/getFriends/' + "s")
       .then(result => {
         result.data.users.forEach((user)=>{
           let item = {
@@ -51,7 +49,7 @@ class Discussions extends React.Component {
       .catch()
     let lista = []
     this.state.search = this.state.search == "" ? "All" : this.state.search
-    await axios.get(ruta.ruta+'/publication/get/' + data._id + '/' + this.state.search)
+    await axios.get(ruta.ruta+'/publication/get/' + "s" + '/' + this.state.search)
       .then(result => {
         //result.data.publications
         result.data.publications.forEach(publicacion => {
@@ -66,15 +64,11 @@ class Discussions extends React.Component {
             etiquetas: publicacion.labels,
             user: "usuario"
           }
-          console.log(data)
+          console.log("-")
           data2.forEach(usr => {
             if (usr._id == publicacion.idUser) {
               item.user = usr.body
               item.author.image = usr.img
-            }
-            if (publicacion.idUser == data._id) {
-              item.user = data.fullname
-              item.author.image = data.profileImage
             }
           })
           lista.push(item)
