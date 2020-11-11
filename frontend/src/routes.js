@@ -24,7 +24,7 @@ export default [{
     },
     {
         path: "/inicio",
-        layout: DefaultLayout,
+        layout: DefaultLayout2,
         component: BlogOverview
     },
     {
