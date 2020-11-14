@@ -19,7 +19,7 @@ const login = () => {
     pass: pass
   }
   console.log(body)
-  axios.post('http://34.67.231.97:5000/login', body)
+  axios.post('http://35.188.121.170:5000/login', body)
       .then(result => {
         console.log("-----------------")
         if(result.data.message=="Se encontro el usuario."){
