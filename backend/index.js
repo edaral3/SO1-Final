@@ -13,7 +13,7 @@ require("./app/routes/usuario")(app);
 
 const dbConnect = () => {
     db.mongoose
-        .connect("mongodb://18.217.45.142:80/infectados")
+        .connect("mongodb+srv://edgar:1234@final.bmqgx.mongodb.net/Final?retryWrites=true&w=majority")
         .catch(err => {
             console.error("** No se pudo conectar a la base de datos **");
             console.error(err);
